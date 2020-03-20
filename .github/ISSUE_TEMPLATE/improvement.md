@@ -12,4 +12,4 @@ about: You want to fix something necessary?
 <!-- Type your issue description here... -->
 
 # Suggestion
-<!-- Do you have an idea to fix it? -->
+<!-- Do you have an idea how to fix it? -->
