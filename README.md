@@ -10,7 +10,7 @@ Das Ziel für den 48-stündigen Hackathon ist es, einen [Prototypen](https://de.
 Die Dokumentation des Software-Designs und für den Entwurf relevante Informationen sind in [dieses Repository](https://github.com/E-Edu/draft-documents) ausgelagert bzw. auf den GitHub-Wikis veröffentlicht.
 
 ## Contribution Guidelines
-Work in progress...
+Die Entwicklung des E-Learning-Systems unterliegt immer den [Konventionen](https://github.com/E-Edu/general/blob/master/guides/conventions.md). So hat auch jeder Entwickler sich an diese zu halten und sich nach neuen Versionen zu informieren.
 
 ## Deployment
 Da der Prototyp erstmal keine große CI-Pipeline benötigt, wird der Build über [GitHub-Actions](https://github.com/features/actions) durchgeführt. Das Front- und Backend wird auf den Servern von [The Morpheus Tutorials](https://the-morpheus.de/) gestartet und öffentlich  zugänglich gemacht. Um dies zu ermöglichen, wird die jeweilige Software [dockerized](https://www.docker.com/).
