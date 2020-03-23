@@ -1,0 +1,65 @@
+version: '3'
+services:
+  database:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_USER: eedu
+      MYSQL_PASSWORD: eedu
+      MYSQL_DATABASE: eedu
+    networks:
+      - database
+    volumes:
+      - ./db-data:/var/lib/mariadb
+
+  user:
+    image: eedu/userms
+    restart: always
+    env_file: eedu.env
+    environment:
+      SMTP_HOSTNAME: <insert smtp hostname>
+      SMTP_PORT: 587
+      SMTP_USERNAME: <insert smtp username>
+      SMTP_PASSWORD: <insert smtp password>
+    networks:
+      - database
+    ports:
+      - 8081:80
+    depends_on:
+      - database
+
+  report:
+    image: eedu/reportms
+    restart: always
+    env_file: eedu.env
+    networks:
+      - database
+    ports:
+      - 8082:80
+    depends_on:
+      - database
+
+  task:
+    image: eedu/taskms
+    restart: always
+    env_file: eedu.env
+    networks:
+      - database
+    ports:
+      - 8083:80
+    depends_on:
+      - database
+
+  frontend:
+    image: eedu/frontend
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - user
+      - task
+      - report
+
+networks:
+  database:
